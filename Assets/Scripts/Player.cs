@@ -8,16 +8,14 @@ public class Player : MonoBehaviour
 
     Camera cam;
     public float width;
-    //private float speed = 3f;
 
     bool isShooting;
-    //float coolDown = 0.5f;
 
     [SerializeField] private ObjectPool objectPool = null;
 
     public ShipStats shipStats;
-    private Vector2 offScreenPos = new Vector2(0, -20f);
-    private Vector2 startPos = new Vector2(0, -6.5f);
+    private Vector2 offScreenPosition = new Vector2(0, -20f);
+    private Vector2 startPosition = new Vector2(0, -6.5f);
 
     private float dirx;
 
@@ -31,7 +29,7 @@ public class Player : MonoBehaviour
     {
         shipStats.currentHealth = shipStats.maxHealth;
         shipStats.currentLifes = shipStats.maxLifes;
-        transform.position = startPos;
+        transform.position = startPosition;
 
         UIManager.UpdateHealthBar(shipStats.currentHealth);
         UIManager.UpdateLives(shipStats.currentLifes);
@@ -70,8 +68,7 @@ public class Player : MonoBehaviour
     private IEnumerator Shoot()
     {
         isShooting = true;
-
-        //Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        
         GameObject obj = objectPool.GetPooledObject();
         obj.transform.position = gameObject.transform.position;
 
@@ -91,12 +88,12 @@ public class Player : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        transform.position = offScreenPos;
+        transform.position = offScreenPosition;
         yield return new WaitForSeconds(2);
 
         shipStats.currentHealth = shipStats.maxHealth;
 
-        transform.position = startPos;
+        transform.position = startPosition;
 
         UIManager.UpdateHealthBar(shipStats.currentHealth);
     }
