@@ -10,8 +10,6 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     private int score;
-    public TextMeshProUGUI highScoreText;
-    private int highScore;
     public TextMeshProUGUI coinsText;
     private int coins;
     public TextMeshProUGUI waveText;
@@ -55,10 +53,6 @@ public class UIManager : MonoBehaviour
     {
         instance.score += s;
         instance.scoreText.text = instance.score.ToString("000,000");
-    }
-    public static void UpdateHighScore()
-    {
-
     }
     public static void UpdateCoins()
     {

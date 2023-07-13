@@ -127,8 +127,7 @@ public class AlienMaster : MonoBehaviour
     private void Shoot()
     {
         Vector2 pos = allAliens[Random.Range(0, allAliens.Count)].transform.position;
-
-        //Instantiate(bulletPrefab, pos, Quaternion.identity);
+        
         GameObject obj = objectPool.GetPooledObject();
         obj.transform.position = pos;
 

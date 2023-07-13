@@ -12,7 +12,7 @@ public class Alien : MonoBehaviour
     public GameObject healthPrefab;
 
     private const int LIFE_CHANCE = 1;
-    private const int HEALTH_CHANCE = 10;
+    private const int HEALTH_CHANCE = 25;
     private const int COIN_CHANCE = 50;
 
     public void Kill()
